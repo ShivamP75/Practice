@@ -4,27 +4,26 @@ import java.util.Arrays;
 
 public class RotateArrayK {
     public static void main(String[] args) {
-        int[] arr = {1,2,3,4,5,6};
-        int k = -1;
-        rotateArray(arr,arr.length, k);
+        int[] arr = {1, 2, 3, 4, 5, 6};
+        int k = 5;
+        rotateArray(arr, arr.length, k);
         System.out.println(Arrays.toString(arr));
     }
-    public static void rotateArray(int[] arr, int n , int k){
-        if(k >= 0){
-            k = k%n;
-        }
-        else{
+
+    public static void rotateArray(int[] arr, int n, int k) {
+        k = k % n;
+        if (k < 0) {
             k = k + n;
         }
-        arraySwap(arr,0,n-k-1);
+        arraySwap(arr, 0, n - k - 1);
 
-        arraySwap(arr,n-k,n-1);
+        arraySwap(arr, n - k, n - 1);
 
-        arraySwap(arr,0,n-1);
+        arraySwap(arr, 0, n - 1);
     }
 
-    public static void arraySwap(int[] arr, int l , int r){
-        while(l <= r){
+    public static void arraySwap(int[] arr, int l, int r) {
+        while (l <= r) {
             int temp = arr[l];
             arr[l] = arr[r];
             arr[r] = temp;
