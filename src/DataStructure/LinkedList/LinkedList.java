@@ -216,6 +216,15 @@ public class LinkedList {
             size--;
         }
     }
+    public int getAt(int indx){
+        int i = 0;
+        Node a = this.head;
+        while(i < indx){
+            i++;
+            a = a.next;
+        }
+        return a.data;
+    }
 
     public void display() {
 
