@@ -94,26 +94,27 @@ package DataStructure.LinkedList;
 
 public class LinkedList {
 
-    public class Node{
+    public class Node {
         int data;
         Node next;
 
-        Node(int data){
+        Node(int data) {
             this.data = data;
         }
     }
-    Node head;
-    int size;
-    public Node insert(int data){
+
+    private Node head;
+    private int size;
+
+    public Node insert(int data) {
         Node node = new Node(data);
-        if(head == null){
+        if (head == null) {
             this.head = node;
             size++;
             return this.head;
-        }
-        else{
+        } else {
             Node i = this.head;
-            while(i.next != null){
+            while (i.next != null) {
                 i = i.next;
             }
             i.next = node;
@@ -121,13 +122,13 @@ public class LinkedList {
             return node;
         }
     }
-    public Node insertAtFirst(int data){
+
+    public Node insertAtFirst(int data) {
         Node node = new Node(data);
-        if(size == 0){
+        if (size == 0) {
             this.head = node;
             return node;
-        }
-        else{
+        } else {
             Node i = this.head;
             this.head = node;
             node.next = i;
@@ -135,18 +136,18 @@ public class LinkedList {
             return node;
         }
     }
-    public Node remove(){
-        if(size == 0) return null;
-        if(size == 1){
+
+    public Node remove() {
+        if (size == 0) return null;
+        if (size == 1) {
             Node i = this.head;
             this.head = null;
             size--;
             return i;
-        }
-        else{
+        } else {
             int i = 0;
             Node a = this.head;
-            while(i < size - 2){
+            while (i < size - 2) {
                 i++;
                 a = a.next;
             }
@@ -156,37 +157,39 @@ public class LinkedList {
             return k;
         }
     }
-    public void removeFirst(){
-        if(size == 0) return;
-        else{
+
+    public void removeFirst() {
+        if (size == 0) return;
+        else {
             this.head = this.head.next;
             size--;
             return;
         }
     }
-    public void updateAt(int indx, int data){
-        if(indx < 0 || indx >= size){
+
+    public void updateAt(int indx, int data) {
+        if (indx < 0 || indx >= size) {
             System.out.println("Invalid Index");
             return;
-        }
-        else{
+        } else {
             int i = 0;
 //            5 7 9
 //              a
 //            i
             Node a = this.head;
-            while(i < indx){
+            while (i < indx) {
                 i++;
                 a = a.next;
             }
             a.data = data;
         }
     }
-    public void insertAt(int indx, int data){
+
+    public void insertAt(int indx, int data) {
         Node node = new Node(data);
         int i = 0;
         Node a = this.head;
-        while(i < indx - 1){
+        while (i < indx - 1) {
             i++;
             a = a.next;
         }
@@ -195,11 +198,11 @@ public class LinkedList {
         node.next = b;
         size++;
     }
-    public void removeAt(int indx){
-        if(indx == 0){
+
+    public void removeAt(int indx) {
+        if (indx == 0) {
             this.head = this.head.next;
-        }
-        else{
+        } else {
             int i = 0;
             Node a = this.head;
             while (i < indx - 1) {
@@ -213,13 +216,18 @@ public class LinkedList {
             size--;
         }
     }
-    public void display(){
+
+    public void display() {
 
         Node i = this.head;
-        while(i != null){
+        while (i != null) {
             System.out.print(i.data + " - > ");
-            i= i.next;
+            i = i.next;
         }
         System.out.println("Null");
-        }
+    }
+
+    public int getSize() {
+        return size;
+    }
 }

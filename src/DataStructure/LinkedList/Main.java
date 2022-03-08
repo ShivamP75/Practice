@@ -27,6 +27,6 @@ public class Main {
 
         ll.removeAt(1);
         ll.display();
-        System.out.println(ll.size);
+        System.out.println(ll.getSize());
     }
 }
