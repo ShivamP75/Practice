@@ -2,8 +2,8 @@ package com.company.Practice;
 
 public class SearchElementRotatedSortedArray {
     public static void main(String[] args) {
-        int[] arr = {3, 1};
-        int key = 1;
+        int[] arr = {4, 5, 6, 8, 1, 2, 3};
+        int key = 3;
 
         System.out.println(bSearch(arr, 0, arr.length-1, key));
     }
@@ -14,7 +14,7 @@ public class SearchElementRotatedSortedArray {
         if(low > high) return -1;
 
         if(arr[mid] == k) return mid;
-
+//      4, 5, 6, 8, 1, 2, 3
         else if(arr[low] < arr[mid]){
             if(arr[mid] > k  && k >= arr[low]) {
                 return bSearch(arr, low, mid - 1, k);
