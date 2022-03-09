@@ -13,38 +13,33 @@ public class Sort {
 //        System.out.println(Arrays.toString(insertionsSort(arr, arr.length)));
         System.out.println(Arrays.toString(mergeSort(arr, 0, arr.length-1)));
     }
-
-    public static int[] mergeSort(int arr[], int l, int r) {
-        // Your code here
-        if (l >= r) {
-            int[] res = new int[1];
-            res[0] = arr[l];
-            return res;
+public static int[] mergeSort(int[] arr, int l , int r){
+        if(l == r){
+            int[] a = new int[1];
+            a[0] = arr[l];
+            return a;
         }
-
-        int mid = (l + r) / 2;
-        int[] lArr = mergeSort(arr, l, mid);
-        int[] rArr = mergeSort(arr, mid + 1, r);
-        return mergeTwoSortedArray(lArr, rArr);
-    }
-
-    private static int[] mergeTwoSortedArray(int[] lArr, int[] rArr) {
-        int lenLArr = lArr.length;
-        int lenRArr = rArr.length;
+        int mid = (l + r)/2;
+        int[] lArr = mergeSort(arr, l , mid);
+        int[] rArr = mergeSort(arr,mid+1, r);
+        return mergeTwoSortedArray(lArr , rArr);
+}
+public static int[] mergeTwoSortedArray(int[] lArr, int[] rArr){
+        int[] arr = new int[lArr.length + rArr.length];
         int i = 0;
         int j = 0;
-        int[] arr = new int[lenLArr + lenRArr];
-        for (int k = 0; k < (lenLArr + lenRArr); k++) {
-            if (i != lenLArr && j != lenRArr) {
-                arr[k] = (lArr[i] > rArr[j]) ? rArr[j++] : lArr[i++];
-            }
-            else if (i < lenLArr) arr[k] = lArr[i++];
-            else {
-                arr[k] = rArr[j++];
-            }
+    for (int k = 0; k < arr.length; k++) {
+        if(i != lArr.length && j != rArr.length){
+            arr[k] = lArr[i] > rArr[j] ? rArr[j++] : lArr[i++];
         }
-        return arr;
+        else if(i < lArr.length) arr[k] = lArr[i++];
+        else arr[k] = rArr[j++];
     }
+    return arr;
+}
+
+
+
 
 //    private static int[] insertionsSort(int[] arr, int length) {
 //        for (int i = 0; i <length; i++) {

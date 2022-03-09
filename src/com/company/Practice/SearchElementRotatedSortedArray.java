@@ -2,7 +2,7 @@ package com.company.Practice;
 
 public class SearchElementRotatedSortedArray {
     public static void main(String[] args) {
-        int[] arr = {4, 5, 6, 8, 1, 2, 3};
+        int[] arr = {6, 8, 1, 2, 3, 4, 5};
         int key = 3;
 
         System.out.println(bSearch(arr, 0, arr.length-1, key));

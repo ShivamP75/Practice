@@ -28,7 +28,12 @@ public class Main {
         ll.removeAt(1);
         ll.display();
 
-        System.out.println(ll.getAt(4));
+
+       ll.insert(15);
+       ll.display();
+
+        System.out.println(ll.getMid());
+
 
         System.out.println(ll.getSize());
     }

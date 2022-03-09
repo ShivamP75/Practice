@@ -202,6 +202,7 @@ public class LinkedList {
     public void removeAt(int indx) {
         if (indx == 0) {
             this.head = this.head.next;
+            size--;
         } else {
             int i = 0;
             Node a = this.head;
@@ -226,6 +227,16 @@ public class LinkedList {
         return a.data;
     }
 
+    public int getMid(){
+        Node i = this.head;
+        Node j = this.head;
+        while(j != null && j.next != null){
+            i = i.next;
+            j = j.next.next;
+        }
+        return i.data;
+    }
+
     public void display() {
 
         Node i = this.head;
@@ -237,6 +248,6 @@ public class LinkedList {
     }
 
     public int getSize() {
-        return size;
+        return this.size;
     }
 }
